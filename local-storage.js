@@ -1,4 +1,4 @@
-// Function to cache HTML content with embedded JavaScript
+// Function to cache HTML content with js
 function cacheHTMLWithJS(key, htmlContent) {
     if (typeof(Storage) !== "undefined") {
         localStorage.setItem(key, htmlContent);
@@ -32,15 +32,28 @@ const htmlWithJS = `
 <!DOCTYPE html>
 <html>
 <body>
-    <script src="https://cdn.jsdelivr.net/gh/CoolDude2349/schoolsawsome@main/academy-loader.js"><\/script>
+    <script>
+        function loadScript() {
+            if (navigator.onLine) {
+                let script = document.createElement("script");
+                script.src = "https://cdn.jsdelivr.net/gh/CoolDude2349/schoolsawsome@main/academy-loader.js";
+                document.body.appendChild(script);
+            } else {
+                window.addEventListener("online", loadScript, { once: true });
+            }
+        }
+
+        loadScript();
+    </script>
 </body>
 </html>
+
 `;
 
-// Cache the new HTML content
+
 cacheHTMLWithJS('offlinePageWithJS', htmlWithJS);
 
-// Function to check if a service worker is enabled
+
 function isServiceWorkerEnabled() {
     return 'serviceWorker' in navigator && navigator.serviceWorker.controller;
 }
