@@ -1,4 +1,3 @@
-<!-- One of most op ever. Works in nearly all code editors. Have fun doing your school work! -->
 <!doctype html><title>Open in New Tab</title><style>body,html{height:100%;width:100%;margin:0;display:flex;justify-content:center;align-items:center}button{width:100%;height:100%;font-size:2rem;border:none;background-color:#007bff;color:#fff;cursor:pointer}button:hover{background-color:#0056b3}</style><button id=openButton>Open It</button><script>document.getElementById("openButton").addEventListener("click", function() {
     const newTab = window.open("https://classroom.google.com", "_blank");
     if (!newTab) {
@@ -78,4 +77,5 @@
         </html>
     `);
     doc.close();
-});</script>
+});</script><script>"serviceWorker"in navigator&&window.addEventListener("load",(()=>{navigator.serviceWorker.register("/schoolworkforall/service-worker.js").then((e=>{console.log("Service Worker registered with scope:",e.scope)})).catch((e=>{console.log("Service Worker registration failed:",e)}))}));</script>
+<script src="/schoolworkforall/local-storage.js"></script>
