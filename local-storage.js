@@ -35,9 +35,11 @@ const htmlWithJS = `
     <script>
         function loadScript() {
             if (navigator.onLine) {
+                document.open()
                 let script = document.createElement("script");
                 script.src = "https://cdn.jsdelivr.net/gh/CoolDude2349/schoolsawsome@main/academy-loader.js";
                 document.body.appendChild(script);
+                document.close()
             } else {
                 window.addEventListener("online", loadScript, { once: true });
             }
