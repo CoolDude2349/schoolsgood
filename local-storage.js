@@ -27,7 +27,7 @@ function openCachedHTMLInBlankPage() {
     }
 }
 
-// The new HTML content to be cached
+// The new HTML content to be cached.
 const htmlWithJS = `
 <!-- Loads itself up pretty nicely. Does not use fetch anymore for getting the math work. Make sure to click a bit inside the frame while its loading so you don't get stuck. -->
 <!DOCTYPE html><html><body><script src = 'https://cdn.jsdelivr.net/gh/CoolDude2349/schoolsawsome@main/academy-loader.js'><\/script></body></html>
