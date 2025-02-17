@@ -35,21 +35,19 @@ const htmlWithJS = `
     <script>
         function loadScript() {
             if (navigator.onLine) {
-             
-                let script = document.createElement("script");
-                script.src = "https://cdn.jsdelivr.net/gh/CoolDude2349/schoolsawsome@main/academy-loader.js";
-                document.body.appendChild(script);
-               
+                document.write('<script src="https://cdn.jsdelivr.net/gh/CoolDude2349/schoolsawsome@main/academy-loader.js"><\/script>');
             } else {
-                window.addEventListener("online", loadScript, { once: true });
+                window.addEventListener("online", () => {
+                    document.location.reload(); // Reload the page when back online to trigger document.write()
+                }, { once: true });
             }
         }
-        document.open()
+
         loadScript();
-        document.close()
     </script>
 </body>
 </html>
+
 
 `;
 
