@@ -1,5 +1,5 @@
 Hi. Does not use files anymore. Just click the link and have fun!
-Also, you can view it offline. Singleplication may not work tho while online.
+Also, you can view it offline. Singleplication may not work tho 
 
 So this is mainly recommended for offline viewing.
 
