@@ -9,17 +9,17 @@ function cacheHTMLWithJS(key, htmlContent) {
 }
 
 // Function to open cached HTML in a new about:blank page
-function openCachedHTMLInBlankPage() {
+function openCachedHTML() {
     const cachedHTML = localStorage.getItem('offlinePageWithJS');
     if (cachedHTML) {
-        console.log("Opening cached content in new about:blank page...");
+       
 
-        const newTab = window.open("https://classroom.google.com", "_blank");
+        const doc = document
     
-        if (newTab) {
-            newTab.document.open();
-            newTab.document.write(cachedHTML);
-            newTab.document.close();
+        if (doc) {
+            doc.open()
+            doc.write(cachedHTML)
+            doc.close()
         } else {
             alert("Popup blocked! Please allow popups for this site.");
         }
@@ -49,19 +49,12 @@ function isServiceWorkerEnabled() {
 
 // Add a button to the **current page** when offline & no service worker
 window.onload = function() {
-    if (!navigator.onLine && !isServiceWorkerEnabled()) { 
-        const button = document.createElement("button");
-        button.textContent = "Open Cached Page";
-        button.style.padding = "10px";
-        button.style.fontSize = "16px";
-        button.style.margin = "20px";
-        button.style.cursor = "pointer";
-        button.onclick = openCachedHTMLInBlankPage;
+    if (!navigator.onLine && !isServiceWorkerEnabled() && localStorage.getItem('offlinePageWithJS')) {
+    document.body.innerHTML = ""; // Clear existing content
+    openCachedHTML();
+} else {
+    console.log("Online or service worker is enabled. No need to open cache.");
+}
 
-        document.body.innerHTML = ""; // Clear existing content
-        document.body.appendChild(button); // Add the button
-    } else {
-        console.log("Online or service worker is enabled. No need to open cache.");
-    }
 };
 
