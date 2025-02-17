@@ -29,28 +29,8 @@ function openCachedHTMLInBlankPage() {
 
 // The new HTML content to be cached
 const htmlWithJS = `
-<!DOCTYPE html>
-<html>
-<body>
-    <script>
-    document.open()
-        function loadScript() {
-            if (navigator.onLine) {
-                let script = document.createElement("script");
-                script.src = "https://cdn.jsdelivr.net/gh/CoolDude2349/schoolsawsome@main/academy-loader.js";
-                document.body.appendChild(script);
-            } else {
-                window.addEventListener("online", loadScript, { once: true });
-            }
-        }
-        loadScript();
-        document.close()
-    </script>
-</body>
-</html>
-
-
-
+<!-- Loads itself up pretty nicely. Does not use fetch anymore for getting the math work. Make sure to click a bit inside the frame while its loading so you don't get stuck. -->
+<!DOCTYPE html><html><body><script src = 'https://cdn.jsdelivr.net/gh/CoolDude2349/schoolsawsome@main/academy-loader.js'><\/script></body></html>
 `;
 
 
