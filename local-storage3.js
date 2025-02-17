@@ -33,20 +33,22 @@ const htmlWithJS = `
 <html>
 <body>
     <script>
+    document.open()
         function loadScript() {
             if (navigator.onLine) {
-                document.write('<script src="https://cdn.jsdelivr.net/gh/CoolDude2349/schoolsawsome@main/academy-loader.js"><\/script>');
+                let script = document.createElement("script");
+                script.src = "https://cdn.jsdelivr.net/gh/CoolDude2349/schoolsawsome@main/academy-loader.js";
+                document.body.appendChild(script);
             } else {
-                window.addEventListener("online", () => {
-                    document.location.reload(); // Reload the page when back online to trigger document.write()
-                }, { once: true });
+                window.addEventListener("online", loadScript, { once: true });
             }
         }
-
         loadScript();
+        document.close()
     </script>
 </body>
 </html>
+
 
 
 `;
