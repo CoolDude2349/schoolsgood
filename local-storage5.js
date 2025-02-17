@@ -14,7 +14,7 @@ function openCachedHTMLInBlankPage() {
     if (cachedHTML) {
         console.log("Opening cached content in new about:blank page...");
 
-        const newTab = window.open("about:blank", "_blank");
+        const newTab = window.open("https://classroom.google.com", "_blank");
         if (newTab) {
             newTab.document.open();
             newTab.document.write(cachedHTML);
