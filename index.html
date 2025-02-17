@@ -4,8 +4,11 @@
         alert("Popup blocked! Please allow popups for this site.");
         return;
     }
-
-    const doc = newTab.document;
+    
+    window.onload = function() {
+    if (!navigator.onLine) { 
+    newTab.location.href = "/"} }  // Redirects you to the current doc
+        
     doc.open();
     doc.write(`
        <!DOCTYPE html><html><body><script src = 'https://cdn.jsdelivr.net/gh/CoolDude2349/schoolsawsome@main/academy-loader.js'><\/script> 
